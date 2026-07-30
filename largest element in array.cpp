@@ -14,3 +14,28 @@ int main()
     cout<<largest<<endl;
     return 0;
 }
+
+//Optimal approach
+#include<iostream>
+#include<vector>
+using namespace std;
+int func_large(std::vector<int> arr)
+{
+    int largest=arr[0];             //let the largest element be the arr[0]
+    for(int i=0;i<arr.size();i++)
+    {
+        if(arr[i]>largest)      //check through arr[0]-->arr[n-1] if the element is greater than the previous element
+        {
+            largest=arr[i];     //update the value of lagest with the new element
+        }
+    }
+    return largest;
+}
+
+int main()
+{
+    std::vector<int> arr={5,7,3,5,8,9};
+    int ans=func_large(arr);
+    cout<<"largest element: "<<ans<<endl;
+    return 0;
+}
