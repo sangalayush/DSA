@@ -1,4 +1,5 @@
 //brute force approach to find largest element in an array.. 
+//TC=O(N*logN)
 #include<bits/stdc++.h>
 using namespace std;
 int sortArr(std::vector<int> &arr)
@@ -16,6 +17,7 @@ int main()
 }
 
 //Optimal approach
+//TC=O{N)
 #include<iostream>
 #include<vector>
 using namespace std;
