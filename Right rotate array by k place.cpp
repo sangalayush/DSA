@@ -36,3 +36,36 @@ int main()
     }
     return 0;
 }
+
+//optimal approach
+void reverse(vector<int> &arr,int start,int end)
+{
+    while(start<=end)
+    {
+        int temp= arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+    }
+}
+void rightrotatebyk(vector<int> &arr, int k)
+{
+    if(arr.size()==0|| k==0)    return;
+    k=k%arr.size();
+    reverse(arr,0,arr.size()-1);
+    reverse(arr,0,k-1);
+    reverse(arr,k,arr.size()-1);
+} 
+
+int main()
+{
+    vector<int> arr={1,2,3,4,5,6,7};    
+    int k=8;
+    rightrotatebyk(arr,k);
+    for(int i=0;i<arr.size();i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
