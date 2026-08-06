@@ -35,3 +35,42 @@ int main()
     }
     return 0;
 }
+//Optimal approach
+void reverse(vector<int> &arr, int start, int end)
+{
+    while(start<=end)
+    {
+        int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+    }
+}
+void leftrotatebyk(vector<int> &arr, int k)
+{
+    //empty array or no rotation
+    if(arr.size()==0||k==0) return;
+    else
+    {
+        //if k>n
+        k= k % arr.size();
+        reverse(arr,0,k-1);
+        reverse(arr,k,arr.size()-1);
+        reverse(arr,0,arr.size()-1);
+    }
+}
+//T.C--> O(n)+O(n)+O(n)-->bcz..each reverse takes linear time
+//total-->O(3N)= O(N)
+//S.C.-->O(1)-->constant space
+int main()
+{
+    vector<int> arr={1,2,3,4,5,6,7};
+    int k=8;
+    leftrotatebyk(arr,k);
+    for(int i=0;i<arr.size();i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
