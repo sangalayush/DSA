@@ -28,3 +28,34 @@ int main(){
     }
     return 0;
 }
+#include<iostream>
+#include<vector>
+using namespace std;
+//optimal approach
+void movezeroes(vector<int> &nums){
+    int j=-1;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]==0){
+            j=i;
+            break;
+        }
+    }
+    if(j==-1) return;
+    for(int i=j+1;i<nums.size();i++){
+        if(nums[i]!=0){
+            int temp= nums[i];
+            nums[i]=0;
+            nums[j]=temp;
+            j++;
+            
+        }
+    }
+}
+int main(){
+    vector<int> nums={1,0,3,0,3,4,0,0,2,0,6};
+    movezeroes(nums);
+    for(int i=0;i<nums.size();i++){
+        cout<<nums[i]<<" ";
+    }
+    return 0;
+}
