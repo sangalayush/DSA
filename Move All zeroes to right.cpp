@@ -40,6 +40,7 @@ void movezeroes(vector<int> &nums){
             break;
         }
     }
+//T.C.-->O(x)
     if(j==-1) return;
     for(int i=j+1;i<nums.size();i++){
         if(nums[i]!=0){
@@ -51,6 +52,9 @@ void movezeroes(vector<int> &nums){
         }
     }
 }
+//T.C.--> O(N-x)->bcz. we are traversing from forward of x
+//total->O(x)+O(N-x)->O(N)
+//S.C.->O(1)->constant space
 int main(){
     vector<int> nums={1,0,3,0,3,4,0,0,2,0,6};
     movezeroes(nums);
