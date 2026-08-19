@@ -19,7 +19,8 @@ int findmissing(vector<int> &nums){
 }
 //T.C.->O(n*n)
 //S.C.->O(1)
-//______________________________________________________________________________________________________
+//--------------------------------------------------------------------------------------------------
+
 // Better approach
 int findmissing(vector<int> &nums){
     int n=nums.size()+1;
@@ -37,6 +38,20 @@ int findmissing(vector<int> &nums){
 }
 //T.C.->O(n+n)=O(N)
 //S.C.->O(N)
+//------------------------------------------------------------------------------------------------------
+
+// Optimal approach[1]->using Sum
+int findmissing(vector<int> &nums){
+    int n=nums.size()+1;
+    int sum= (n*(n+1))/2;
+    int add=0;
+    for(int i=0;i<n-1;i++){
+        add+= nums[i];
+    }
+    return sum-add;
+}
+//T.C.->O(N)
+//S.C.->O(1)
 int main(){
     vector<int> nums={1,2,3,4};
     int ans=findmissing(nums);
