@@ -1,0 +1,27 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+// Brute-force approach
+int findmissing(vector<int> &nums){
+    for(int i=1;i<=nums.size()+1;i++){   //check the range from 1 to N(size of arr+1)
+        int flag=0;
+        for(int j=0;j<nums.size();j++){     //check with each element of array the number in the range
+            if(i==nums[j]){     //if the no. is found then update flag=1 and break the loop
+                flag=1;         //and continue from the the next number in the range
+                break;
+            }
+        }
+        if(flag==0){          //if number not found in the array then
+            return i;       //return the number
+        }
+    }
+    return -1;
+}
+//T.C.->O(n*n)
+//S.C.->O(1)
+int main(){
+    vector<int> nums={1,2,3,4};
+    int ans=findmissing(nums);
+    cout<<ans<<endl;
+    return 0;
+}
