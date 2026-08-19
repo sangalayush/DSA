@@ -52,6 +52,22 @@ int findmissing(vector<int> &nums){
 }
 //T.C.->O(N)
 //S.C.->O(1)
+//---------------------------------------------------------------------------------------------------------
+
+// Optimal approach[2]->using XOR
+int findmissing(vector<int> &nums){
+    int n=nums.size()+1;
+    int xor1=0, xor2=0;
+    for(int i=1;i<=n;i++){
+        xor1= xor1^i;
+    }
+    for(int i=0;i<n-1;i++){
+        xor2= xor2^nums[i];
+    }
+    return xor1^xor2;
+}
+//T.C.->O(n+n)=O(N)
+//S.C.->O(1)
 int main(){
     vector<int> nums={1,2,3,4};
     int ans=findmissing(nums);
