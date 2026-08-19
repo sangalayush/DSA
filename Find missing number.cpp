@@ -19,6 +19,24 @@ int findmissing(vector<int> &nums){
 }
 //T.C.->O(n*n)
 //S.C.->O(1)
+//______________________________________________________________________________________________________
+// Better approach
+int findmissing(vector<int> &nums){
+    int n=nums.size()+1;
+    vector<int> hash(n+1);
+    for(int i=0;i<n-1;i++){
+        hash[nums[i]]++;
+    }
+    for(int i=1;i<=n;i++){
+        if(hash[i]==0){
+            return i;
+            break;
+        }
+    }
+    return -1;
+}
+//T.C.->O(n+n)=O(N)
+//S.C.->O(N)
 int main(){
     vector<int> nums={1,2,3,4};
     int ans=findmissing(nums);
