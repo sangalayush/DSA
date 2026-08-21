@@ -54,7 +54,19 @@ int appear_once(vector<int> &nums){
 }
 //T.C.->O(N*logM+(N/2)+1)->M is the size of map i.e. (N/2)+1
 //S.C.->O((N/2)+1)
-
+//----------------------------------------------------------------------------------------
+//Optimal approach->using xor
+//0^0=0 
+//0^1=1     0^any no.= any no.    
+int appear_once(vector<int> &nums){
+    int xor1=0;
+    for(int i=0;i<nums.size();i++){
+        xor1= xor1^nums[i];
+    }
+    return xor1;
+}
+//T.C.->O(N)
+//S.C.->O(1)
 int main(){
     vector<int> nums={2,2,1,1,3,5,5,4,4};
     int ans= appear_once(nums);
