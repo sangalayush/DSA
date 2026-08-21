@@ -21,7 +21,7 @@ int appear_once(vector<int> &nums){
 
 //------------------------------------------------------------------------------------------
 
-//Better approach
+//Better approach[1]->using hash array
 int maxi=0;
 int appear_once(vector<int> &nums){
     for(int i=0;i<nums.size();i++){
@@ -37,8 +37,24 @@ int appear_once(vector<int> &nums){
     }
     return -1;
 }
-//T.C.->O(N)
-//S.C.->O(N)
+//T.C.->O(N+N+N)=O(N)
+//S.C.->O(maxelement+1)
+//----------------------------------------------------------------------------------
+//Better approach[2]->using ordered map
+int appear_once(vector<int> &nums){
+    map<long long, int> mpp;
+    for(int i=0;i<nums.size();i++){
+        mpp[nums[i]]++;
+    }
+    for(auto it:mpp){
+        if(it.second==1)
+            return it.first;
+    }
+    return -1;
+}
+//T.C.->O(N*logM+(N/2)+1)->M is the size of map i.e. (N/2)+1
+//S.C.->O((N/2)+1)
+
 int main(){
     vector<int> nums={2,2,1,1,3,5,5,4,4};
     int ans= appear_once(nums);
