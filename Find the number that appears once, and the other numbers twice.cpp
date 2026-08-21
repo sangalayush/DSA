@@ -56,7 +56,7 @@ int appear_once(vector<int> &nums){
 //S.C.->O((N/2)+1)
 //----------------------------------------------------------------------------------------
 //Optimal approach->using xor
-//0^0=0 
+//a^a=0     same no's ^ is always 0
 //0^1=1     0^any no.= any no.    
 int appear_once(vector<int> &nums){
     int xor1=0;
