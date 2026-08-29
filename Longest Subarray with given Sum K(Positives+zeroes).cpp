@@ -10,13 +10,9 @@ int longestsubarray(vector<int> &nums,int k){
             if(sum==k)
                 maxlen=max(maxlen,j-i+1);
         }
+        sum=0;
     }
     return maxlen;
 }
-int main()
-{
-    vector<int> nums={2,3,2,1,3,1,1,1,1,5,6};
-    int k=6;
-    cout<<longestsubarray(nums,k);
-    return 0;
-}
+//T.C.->O(N*N)
+//S.C.->O(1)
