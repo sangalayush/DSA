@@ -24,7 +24,7 @@ int longestsubarray(vector<int> &nums,int k){
 //T.C.->O(N*logN)
 //S.C.->O(N)         //bcz. all the elements sum will be stored in the map..
 int main(){
-    vector<int> nums={1,1,2,2,3,1,1,1,1,5,4};
+    vector<int> nums={1,1,2,2,3,1,1,1,1,2,-2,5,4};
     int k=4;
     cout<<longestsubarray(nums,k);
     return 0;
