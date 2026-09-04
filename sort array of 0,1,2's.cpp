@@ -15,3 +15,32 @@ void sortarray(vector<int> &nums){
 }
 //T.C.->O(N+N)->O(2N)
 //S.C.->O(1)
+//------------------------------------------------------------------------
+//using optimal approach(Dutch National flag algorithm)
+void sortarray(vector<int> &nums){
+        int low=0, mid=0, high=nums.size()-1;
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums[mid],nums[low]);
+                mid++, low++;
+            }
+            else if(nums[mid]==1){
+                mid++;
+            }
+            else{
+                swap(nums[mid],nums[high]);
+                high--;
+            }
+        }
+}
+//T.C.->O(N)
+//S.C.->O(1)
+int main()
+{
+    vector<int> nums={1,1,2,0,1,2,2,2,0,2,1};
+    sortarray(nums);
+    for(auto it: nums){
+        cout<<it<<" ";
+    }
+    return 0;
+}
