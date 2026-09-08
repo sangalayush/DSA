@@ -29,9 +29,45 @@ string reversewords(string s){
     }
     return result;
 }
+//T.C.->O(N)
+//S.C.->O(N)
 int main()
 {
     string s="Hey! man this was easy";
+    string ans=reversewords(s);
+    cout<<ans;
+    return 0;
+}
+//-------------------------------------------------------------------------------------------
+//using Optimal approach 
+string reversewords(string s){
+    string word="";
+    string result="";
+    int i= s.size()-1;
+    while(i>=0){
+        while(i>=0 && s[i]==' '){
+            i--;
+        }
+        if(i<0) break;
+        int end= i; //store last index of the word from last found
+        while(i>=0 && s[i]!=' '){
+            i--;
+        }
+        word= s.substr(i+1,end-i);
+        if(result!=" "){
+            result+=" "+word;
+        }
+        else{
+            result+=word;
+        }
+    }
+    return result;
+}
+//T.C.->O(N)
+//S.C.->O(1)-> IGNORING THE OUTPUT STRING NO EXTRA DATA STRUCTURE PROP. TO N WAS USED
+int main()
+{
+    string s="Hello world";
     string ans=reversewords(s);
     cout<<ans;
     return 0;
