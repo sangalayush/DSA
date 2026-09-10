@@ -43,10 +43,11 @@ int majorityelement(vector<int> nums){
 int majorityelement(vector<int> nums){
     int cnt=0, ele=0;
     for(int i=0;i<nums.size();i++){
-        if(cnt==0)
+        if(cnt==0){
             cnt=1;
             ele=nums[i];
-        if(nums[i]==ele){
+        }
+        else if(nums[i]==ele){
             cnt++;
         }
         else
