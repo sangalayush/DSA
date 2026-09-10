@@ -15,7 +15,8 @@ int majorityelement(vector<int> nums){
     }
     return -1;
 }
-
+//T.C.->O(N*N)
+//S.C.->O(1)
 int main()
 {
     vector<int> nums={2,2,1,5,5,1,5,5,2,5,5,5};
