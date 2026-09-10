@@ -17,6 +17,27 @@ int majorityelement(vector<int> nums){
 }
 //T.C.->O(N*N)
 //S.C.->O(1)
+//------------------------------------------------------------------------
+#include<unordered_map>
+using namespace std;
+//Better approach
+int majorityelement(vector<int> nums){
+    unordered_map<int,int> mpp;
+    for(int i=0;i<nums.size();i++){
+        mpp[nums[i]]++;             //store all the elements in mpp
+                                    // number->feq
+                                    //key->value
+    }
+    //now check through the map the maximum element
+    for(auto it:mpp){
+        if(it.second>nums.size()/2){
+            return it.first;
+        }
+    }
+    return -1;
+}
+//T.C.->O(N)
+//S.C.->O(N)
 int main()
 {
     vector<int> nums={2,2,1,5,5,1,5,5,2,5,5,5};
