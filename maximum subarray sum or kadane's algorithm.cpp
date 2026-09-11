@@ -32,7 +32,20 @@ int maximumsubarraysum(vector<int> nums){
 //T.C.->O(N^2)
 //S.C.->O(1)
 //----------------------------------------------------------------
-
+//Optimal approach->using kadane's algorithm
+int maximumsubarraysum(vector<int> nums){
+    int maxi= INT_MIN;
+    int sum=0;      //initialize sum as 0
+    for(int i=0;i<nums.size();i++){
+       sum+= nums[i];               // increment the sum by nums[i] value
+       maxi= max(sum,maxi);         //update the maxi if sum>previous maxi
+       if(sum<0)                    //if sum<0 leave the sum
+        sum=0;                      //and put sum to 0 bcs adding -ve values to sum dec. the sum value
+    }
+    return maxi;
+}
+//T.C.->O(N)
+//S.C.->O(1)
 int main()
 {
     vector<int> nums={-2, -3, -7, -2, -10, -4};
