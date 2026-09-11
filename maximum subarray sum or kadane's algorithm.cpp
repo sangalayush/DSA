@@ -62,7 +62,7 @@ int maximumsubarraysum(vector<int> nums){
     int start=0;
     for(int i=0;i<nums.size();i++){
         if(sum==0)
-            int start=i;
+            start=i;
        sum+= nums[i];               // increment the sum by nums[i] value
        if(sum>maxi){
         maxi=sum;               //update the maxi if sum>previous maxi
