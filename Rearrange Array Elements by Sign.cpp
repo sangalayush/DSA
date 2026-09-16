@@ -1,0 +1,28 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+//brute-force
+void rearrangeelements(vector<int> &nums){
+    vector<int> pos;
+    vector<int> neg;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]<0)
+            neg.push_back(nums[i]);
+        else
+            pos.push_back(nums[i]);
+    }
+    for(int i=0;i<nums.size()/2;i++){
+        nums[2*i]=pos[i];
+        nums[2*i+1]=neg[i];
+    }
+}
+//T.C.->O(N+N/2)
+//S.C.->O(N)
+int main() {
+    vector<int> nums={2,3,-1,-8};
+    rearrangeelements(nums);
+    for(int i=0;i<nums.size();i++){
+        cout<<nums[i]<<" ";
+    }
+    return 0;
+}
