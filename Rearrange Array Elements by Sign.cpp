@@ -26,3 +26,34 @@ int main() {
     }
     return 0;
 }
+//--------------------------------------------------------------------------------------------------
+#include <iostream>
+#include<vector>
+using namespace std;
+//optimal
+    void rearrangeelements(vector<int> nums,vector<int> &arr){
+    int posindex=0, negindex=1;
+    for(int i=0;i<nums.size();i++){
+        if(nums[i]<0){
+            arr[negindex]=nums[i];
+            negindex+=2;
+        }
+        else
+            {
+                arr[posindex]= nums[i];
+                posindex+=2;
+            }
+        
+    }
+}
+//T.C.->O(N)
+//S.C.->O(N)
+int main() {
+    vector<int> nums={2,3,-1,1,-8,-9};
+    vector<int> arr(nums.size());
+    rearrangeelements(nums,arr);
+    for(int i=0;i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
