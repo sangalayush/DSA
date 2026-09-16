@@ -1,6 +1,7 @@
 #include <iostream>
 #include<vector>
 using namespace std;
+//for equal no. of + & - elements
 //brute-force
 void rearrangeelements(vector<int> &nums){
     vector<int> pos;
@@ -57,3 +58,5 @@ int main() {
     }
     return 0;
 }
+//for unequal no. of + & - elements
+//i.e. if pos>neg or neg>pos
